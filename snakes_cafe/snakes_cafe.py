@@ -1,29 +1,61 @@
-print("$ python snakes_cafe.py")
-print("*"*40)
-print("**  Welcome to the Snakes Cafe!  **")
-print("**")
-print("** To quit any time, type \"quit\" **\n")
-print("*"*40)
+from textwrap import dedent
+appetizers = {
+    "Wings":0, 
+    "Cookies":0,
+    "Spring Rolls":0,
+    "salmon":0, 
+    "Steak":0, 
+    "Meat Torando":0, 
+    "A Literal Garden":0, 
+    "Ice Cream":0, 
+    "Cake":0, 
+    "Pie":0, 
+    "Coffee":0, 
+    "Tea":0, 
+    "Unicorn Tears":0
+}
+menu_items = dedent(
+"""
+Appetizers
+{}
+{}
+{}
+Deserts
+one
+two
+""".format(*appetizers)
+)
+greeting = dedent(
+    """
+    **************************************
+    **    Welcome to the Snakes Cafe!   **
+    **    Please see our menu below.    **
+    **
+    ** To quit at any time, type "quit" **
+    **************************************
+    """
+)
+ask_order = dedent(
+    """
+    ***********************************
+    ** What would you like to order? **
+    ***********************************
+    """
+)
 
-print("Appetizers\n")
-print("-------\nWings\nCookies\nSpring Rolls\n")
-print("Entrees\n")
-print("-------\nSalmon\nStake\nMeat Torando\nA Literal Garden\n")
-print("Drinks\n")
-print("-------\nCoffee\nTea\nUnicorn Tears\n")
+print(greeting)
+print(menu_items)
 
-print("********************************\n** What do you like to order? **\n********************************\n")
-order = input("> ")
-count = 0
-appetizers = ["Wings", "Cookies", "Spring Rolls", "salmon", "Steak", "Meat Torando", "A Literal Garden", "Ice Cream", "Cake", "Pie", "Coffee", "Tea", "Unicorn Tears"]
-#entrees = ["salmon", "Steak", "Meat Torando", "A Literal Garden"]
-#desserts = ["Ice Cream", "Cake", "Pie"]
-#drinks = ["Coffee", "Tea", "Unicorn Tears"]
-
-for items in appetizers:
-    if order == items:
-        count =+1
-        print(f"\n** {count} order of {order} have been added to your meal**")
-        order = input("> ")
+while True:
+    order = input("> " + ask_order)
+    if order == "quit":
+        break
+    order = order.title()
+    if order not in appetizers:
+        print("Sorry! ....")
+    else:
+        appetizers[order] +=1
+        print(f"** {appetizers[order]} order of {order} have been added to your meal**")
+print("Thank you for your visit")
     
     
