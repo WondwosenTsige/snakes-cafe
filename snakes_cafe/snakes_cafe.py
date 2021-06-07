@@ -18,17 +18,29 @@ our_menu = dedent(
 """
 Appetizers
 -----------
+
 {}
 {}
 {}
+
 Entrees
 -----------
+
 {}
 {}
 {}
+{}
+
 Deserts
 -----------
+
+{}
+{}
+{}
+
 Drinks
+-----------
+
 {}
 {}
 {}
@@ -62,7 +74,7 @@ while True:
         break
     order = order.title()
     if order not in menu_items_list:
-        print("Sorry! ....")
+        print(f"Sorry! We dont have {order} in our menu")
     else:
         menu_items_list[order] +=1
         print(f"** {menu_items_list[order]} order of {order} have been added to your meal**")
