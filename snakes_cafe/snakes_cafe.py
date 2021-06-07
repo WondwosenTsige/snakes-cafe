@@ -1,9 +1,9 @@
 from textwrap import dedent
-appetizers = {
+menu_items_list = {
     "Wings":0, 
     "Cookies":0,
     "Spring Rolls":0,
-    "salmon":0, 
+    "Salmon":0, 
     "Steak":0, 
     "Meat Torando":0, 
     "A Literal Garden":0, 
@@ -14,16 +14,25 @@ appetizers = {
     "Tea":0, 
     "Unicorn Tears":0
 }
-menu_items = dedent(
+our_menu = dedent(
 """
 Appetizers
+-----------
+{}
+{}
+{}
+Entrees
+-----------
 {}
 {}
 {}
 Deserts
-one
-two
-""".format(*appetizers)
+-----------
+Drinks
+{}
+{}
+{}
+""".format(*menu_items_list)
 )
 greeting = dedent(
     """
@@ -44,18 +53,19 @@ ask_order = dedent(
 )
 
 print(greeting)
-print(menu_items)
+print(our_menu)
+print(ask_order)
 
 while True:
-    order = input("> " + ask_order)
+    order = input("> ")
     if order == "quit":
         break
     order = order.title()
-    if order not in appetizers:
+    if order not in menu_items_list:
         print("Sorry! ....")
     else:
-        appetizers[order] +=1
-        print(f"** {appetizers[order]} order of {order} have been added to your meal**")
+        menu_items_list[order] +=1
+        print(f"** {menu_items_list[order]} order of {order} have been added to your meal**")
 print("Thank you for your visit")
     
     
